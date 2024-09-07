@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .scrollable-container {
+  height: 300px; /* Adjust as needed */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: relative;
+}
+
+#contentArea {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#inputField {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+    </style>
+</head>
+<body>
+    <div id="chatContainer" class="scrollable-container">
+        <div id="contentArea">
+          <!-- Dynamic content will be added here -->
+        </div>
+        <input type="text" id="inputField" placeholder="Type a message..." />
+      </div>
+      
+    <script>
+        document.getElementById('inputField').addEventListener('input', function() {
+  var container = document.getElementById('chatContainer');
+  var contentArea = document.getElementById('contentArea');
+  
+  // Add new content dynamically (for demo purposes)
+  var newContent = document.createElement('div');
+  newContent.textContent = this.value; // Replace this with actual content addition logic
+  contentArea.appendChild(newContent);
+
+  // Scroll to the bottom
+  container.scrollTop = container.scrollHeight;
+});
+
+    </script>
+</body>
+</html>
